@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let p of productsArray">
+                <div class="card">
+                    <div class="card-header">
+                        <img [src]="p.productImage" alt="" class="card-img-top">
+                    </div>
+                    
+                    <div class="card-body">
+                        <div *ngIf="p.pflag">
+                          <label>product Name : </label>
+                          <input type="text" name="" id="" [(ngModel)]="p.productName">
+                         <br> <label>Manufactured by: </label>
+                         <input type="text" name="" id="" [(ngModel)]="p.productCompany">
+                          <br><label>Features : </label>
+                          <input type="text" name="" id="" [(ngModel)]="p.productFeatures">
+                         <br> <label for="" > Price :</label>   
+                         <input type="text" name="" id="" [(ngModel)]="p.productPrice"> 
+            
+                        </div>
+                        <div *ngIf="!p.pflag">
+                        <h1>{{p.productName}}</h1>
+                        <p>Manufactured by: {{p.productCompany}}</p>
+                        <p>Features : <br>{{p.productFeatures}}</p>
+                        <label for="" class="badge bg-success text-white">
+                            {{p.productPrice|currency:'INR'}}
+                        </label>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <button class="btn btn-success" *ngIf="p.pflag" (click)="update(p)">save changes</button>
+                        <button class="btn btn-warning" *ngIf="!p.pflag" (click)="changeflag(p)">Update</button>
+                        <button class="btn btn-danger" (click)="deleteme(p)">Delete</button>
+                    </div>
+                   
+                </div>
+        </div>
+    </div>
+</div>

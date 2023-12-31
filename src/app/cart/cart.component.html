@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <td>Product Image</td>
+        <td>Product Name</td>
+        <td>product Price</td>
+    </tr>
+    <tr *ngFor="let p of cartarr">
+        <td>
+            <img [src]="p.productImage" alt="" height="100" width="100">
+        </td>
+        <td>
+            <label for="">{{p.productName}}</label>
+        </td>
+        <td> 
+            <label for="">{{p.productPrice}}</label>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Total</td>
+        <td>{{totalprice}}</td>
+
+    </tr>
+    <tr>
+        <!-- <input type="text" [(ngModel)]="totalprice" disabled> -->
+        <button>Place your order</button>
+    </tr>
+
+</table>
